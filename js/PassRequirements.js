@@ -75,9 +75,9 @@ if (typeof jQuery === 'undefined') {
                 var this_ = $(this);
                 Object.getOwnPropertyNames(defaults.rules).forEach(function (val, idx, array) {
                     if (this_.val().replace(defaults.rules[val].regex, "").length > defaults.rules[val].minLength - 1) {
-                        this_.next('.popover').find('#' + val).addClass('done');
+                        this_.next('.popover').find('#' + val).css('text-decoration','line-through');
                     } else {
-                        this_.next('.popover').find('#' + val).removeClass('done');
+                        this_.next('.popover').find('#' + val).css('text-decoration','none');
                     }
 
                 })
