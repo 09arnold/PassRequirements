@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <title>Password Requirements Plugin Demo</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        padding: 50px;
+    }
+    
+    .done {
+        text-decoration: line-through;
+    }
+</style>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
+                    <label>Input with 2 rules, defaults not specified</label>
+                    <input id="test1" class="form-control" placeholder="2 rules set, will extend defaults">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Input with no options specified</label>
+                    <input id="test2" class="form-control" placeholder="">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Input with 2 rules set, defaults set to false</label>
+                    <input id="test3" class="form-control" placeholder="trigger:click, popoverPlacement: top">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Input with defaults set to false,but no rules set</label>
+                    <input id="test4" class="form-control" placeholder="This field will be skipped, check the console">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/PassRequirements.js"></script>
+<script>
+    $('#test1').PassRequirements({
+        rules: {
+            containSpecialChars: {
+                text: "Your input should contain at least minLength special character(s)",
+                minLength: 1,
+                regex: new RegExp('([^!,%,&,@,#,$,^,*,?,_,~])', 'g')
+            },
+            containNumbers: {
+                text: "Your input should contain at least minLength number(s)",
+                minLength: 2,
+                regex: new RegExp('[^0-9]', 'g')
+            }
+        }
+    });
+
+    $('#test2').PassRequirements();
+
+    $('#test3').PassRequirements({
+        rules: {
+            containSpecialChars: {
+                text: "Your input should contain at least minLength special character",
+                minLength: 1,
+                regex: new RegExp('([^!,%,&,@,#,$,^,*,?,_,~])', 'g')
+            },
+            containNumbers: {
+                text: "Your input should contain at least minLength numbers",
+                minLength: 2,
+                regex: new RegExp('[^0-9]', 'g')
+            }
+        },
+        popoverPlacement: 'top',
+        defaults: false,
+        trigger: 'click'
+    });
+    
+    $('#test4').PassRequirements({
+        defaults: false
+    });
+</script>
+
+</html>
