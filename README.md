@@ -4,13 +4,13 @@ A jQuery plugin that lists a set of requirements for an input field and crosses 
 
 ## Getting Started
 
-###Dependencies
+### Dependencies
 
 Currently, PassRequirements uses [jQuery](https://jquery.com/) and [Bootstrap's](http://getbootstrap.com/) Popover Plugin.
 
 Be sure to include both before using PassRequirements.
 
-###Including PassRequirements on your page
+### Including PassRequirements on your page
 Include jQuery and Bootstrap on the page, select your input field(s) and call PassRequirements() on them.
 
 The plugin will use the default settings if you pass in no options.
@@ -28,21 +28,21 @@ The plugin will use the default settings if you pass in no options.
 	</script>
 </body>
 ```
-###Configuration
+### Configuration
 The available options include:
 - **trigger** `['focus'|'click']`: the trigger action for the Bootstrap Popover
 - **popoverPlacement** `['top'|'bottom'|'left'|'right']`: the position of the popover
 - **defaults** `[true|false]`: a boolean that tells the plugin whether to extend your settings with the default ones
 - **rules**:   define the requirements.
 
-####Default Options
+#### Default Options
 
 - **trigger**: `'focus'`
 - **popoverPlacement**: `'top'`
 - **defaults**: unset, assumes `true`
 - **rules**: See next section
 
-####Rules
+#### Rules
 
 **rules** is an object that contains a number of rules. Each rule is identified by a *name* and has *text*, *minLength* and *regex* as properties. Anytime the string **minLength** appears in the text property, it is replaced with the value of the **minLength** property
 
